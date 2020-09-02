@@ -1,0 +1,17 @@
+/*********************************************
+ * OPL 12.8.0.0 Data
+ * Author: mazha
+ * Creation Date: Dec 14, 2019 at 5:11:51 PM
+ *********************************************/
+// For larger dataset. No of plane 50
+
+SheetConnection my_sheet("No_of_Plane_50.xlsx");
+E from SheetRead(my_sheet,"'Sheet1'!E7:E56"); // Earliest allowable landing time for plane i.
+L from SheetRead(my_sheet,"'Sheet1'!G7:G56");//Latest allowable landing time for plane i.
+T from SheetRead(my_sheet,"'Sheet1'!F7:F56");//Target landing time for plane i.
+S from SheetRead(my_sheet,"'Sheet1'!J7:BG56"); //The required separation time(>=0) between plane i landing and plane j landing (where plane i land before plane j)
+g from SheetRead(my_sheet,"'Sheet1'!H7:H56");// The penalty cost (>=0) per unit of time for landing before the target time T[I] for plane i = (1,...P)
+h from SheetRead(my_sheet,"'Sheet1'!I7:I56"); // The penalty cost (>=0) per unit of time for landing after the target time T[I] for plane i = (1,...P)
+ //M from SheetRead(my_sheet,"'Sheet1'!:"); // Big number
+
+M=1156; //M=max(L[1,:])-min(E[1,:])

@@ -1,0 +1,15 @@
+/*********************************************
+ * OPL 12.8.0.0 Data
+ * Author: Kamrun
+ * Creation Date: Dec 14, 2019 at 5:17:43 PM
+ *********************************************/
+SheetConnection my_sheet("No_of_Plane_100.xlsx");
+E from SheetRead(my_sheet,"'Sheet1'!E2:E101"); // Earliest allowable landing time for plane i.
+L from SheetRead(my_sheet,"'Sheet1'!G2:G101");//Latest allowable landing time for plane i.
+T from SheetRead(my_sheet,"'Sheet1'!F2:F101");//Target landing time for plane i.
+S from SheetRead(my_sheet,"'Sheet1'!J2:DE101"); //The required separation time(>=0) between plane i landing and plane j landing (where plane i land before plane j)
+g from SheetRead(my_sheet,"'Sheet1'!H2:H101");// The penalty cost (>=0) per unit of time for landing before the target time T[I] for plane i = (1,...P)
+h from SheetRead(my_sheet,"'Sheet1'!I2:I101"); // The penalty cost (>=0) per unit of time for landing after the target time T[I] for plane i = (1,...P)
+ //M from SheetRead(my_sheet,"'Sheet1'!:"); // Big number
+
+M=13522;// see cell no- F111;M=max(L[1,:])-min(E[1,:])
